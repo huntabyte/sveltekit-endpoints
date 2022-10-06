@@ -1,0 +1,16 @@
+
+
+export const load = ({ params, fetch }) => {
+  const postId = params.postId
+
+  const fetchPost = async (id) => {
+    const res = await fetch(`/api/posts/${postId}`)
+    const data = await res.json()
+    return data
+  }
+
+
+  return {
+    post: fetchPost(params.postId)
+  }
+}
